@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>デカい画像を作るやつ</title>
+  </head>
+  <body>
+    <canvas></canvas>
+    <script>
+const [[_, size = 1080]] = location.search.slice(1).split('&').map(currentValue => currentValue.split('='))
+.filter(([key, value]) => key === 'size');
+const canvas = document.querySelector('canvas');
+canvas.height = size;
+canvas.width = size;
+const context = canvas.getContext('2d');
+for (let x = 0; x < canvas.width; x ++) {
+  for (let y = 0; y < canvas.height; y ++) {
+    context.fillStyle = `rgb(${(Math.random() * 256) | 0}, ${(Math.random() * 256) | 0}, ${(Math.random() * 256) | 0})`;
+    context.fillRect(x, y, 1, 1);
+  }
+}
+    </script>
+  </body>
+</html>
