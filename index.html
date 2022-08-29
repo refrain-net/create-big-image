@@ -5,11 +5,13 @@
     <title>デカい画像を作るやつ</title>
   </head>
   <body>
-    <canvas></canvas>
+    <canvas style="display: none"></canvas>
+    <img>
     <script>
 const [[_, size = 1080] = []] = location.search.slice(1).split('&').map(currentValue => currentValue.split('='))
 .filter(([key, value]) => key === 'size');
 const canvas = document.querySelector('canvas');
+const img = document.querySelector('img');
 canvas.height = size;
 canvas.width = size;
 const context = canvas.getContext('2d');
@@ -19,6 +21,7 @@ for (let x = 0; x < canvas.width; x ++) {
     context.fillRect(x, y, 1, 1);
   }
 }
+img.src = canvas.toDataURL('image/png');
     </script>
   </body>
 </html>
