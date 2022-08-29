@@ -7,7 +7,7 @@
   <body>
     <canvas></canvas>
     <script>
-const [[_, size = 1080]] = location.search.slice(1).split('&').map(currentValue => currentValue.split('='))
+const [[_, size = 1080] = []] = location.search.slice(1).split('&').map(currentValue => currentValue.split('='))
 .filter(([key, value]) => key === 'size');
 const canvas = document.querySelector('canvas');
 canvas.height = size;
